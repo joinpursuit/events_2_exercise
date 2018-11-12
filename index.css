@@ -1,0 +1,17 @@
+.addForm {
+  display: block;
+}
+
+.todoList {
+  display: block;
+  height: 200px;
+}
+
+.todoList {
+  padding-inline-start: 30px;
+  list-style-type: circle;
+}
+
+span {
+  padding-left: 10px;
+}
