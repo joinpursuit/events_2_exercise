@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
 	let button = document.querySelector(".mybutton");
 	let list = document.querySelector(".mylist");
-	
+
+	//error message
 	let error = document.createElement('p');
 	error.innerText = "Cannot add empty To-Do";
 	let message = document.body.appendChild(error);
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			list.appendChild(newLi);
 			newLi.innerHTML = input.value + " <button>Remove</button>";
 			input.value = null;
+			newLi.setAttribute("class", "remove");
 			message.style.display = "none";
 		} else {
 			message.style.display = "block";
@@ -32,4 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			event2.target.style = "text-decoration: none";
 		}
 	});
+
+	list.addEventListener("click", (event3) => {
+		if(event3.target.innerText === "Remove") {
+			event3.target.parentNode.remove();
+			message.style.display = "none";
+		}
+	})
+
+
 });
