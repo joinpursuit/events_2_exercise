@@ -1,6 +1,6 @@
 # To-Do: Make To-Do
 
-It's time to make our first usable frontend app. Today, we're going to construct a to-do list. Our app will have the following items:
+It's time to makeay, we're going to construct a to-do list. Our app will have the following items:
 
 - An `h1` title (e.g. "Reed's To-Dos").
 - A single `ul` tag, empty when the page is first loaded.
