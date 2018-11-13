@@ -1,22 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  let form = document.querySelector(".form")
-  //
-  // form.addEventListener("submit", event => {
-  //   event.preventDefault();
-  // });
-
-
 
 
 // function error() {
-
-  // let theForm = document.querySelector(".form")
+    let form = document.querySelector(".form")
   form.addEventListener("submit", event => {
     event.preventDefault();
 
     let textInput = document.querySelector(".input").innerText;
     let newP = document.createElement("p");
+
     newP.innerText = "Error";
     event.currentTarget.appendChild(newP)
   })
