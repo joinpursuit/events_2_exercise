@@ -8,21 +8,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   button.addEventListener("click", event => {
     event.preventDefault();
-    let newLi = document.createElement("li");
-    newLi.innerText = input.value;
-    ul.appendChild(newLi);
-    input.value = null;
+
     // form.reset();
-    if (input.value.length !== 0) {
-      console.log("yas");
-    } else {
+    if (input.value.length === 0) {
       let error = document.createElement("p");
       error.innerText = "insert a valid input";
       form.appendChild(error);
+    } else {
+      let newLi = document.createElement("li");
+      newLi.innerText = input.value;
+      ul.appendChild(newLi);
+      input.value = null;
     }
   });
-  //
-  // li.addEventListener("click", (even) => {
-  //   event.style.text-decoration: line-through;
-  // })
+
+  ul.addEventListener("click", event1 => {
+    if (event1.target.tagName === "LI") {
+      event1.target.style.textDecoration = "line-through";
+    }
+  });
 });
