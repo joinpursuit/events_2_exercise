@@ -1,57 +1,51 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  let form = document.querySelector("form");
+  let ul = document.querySelector("ul");
+  let body = document.querySelector("body");
+  let par = document.createElement("p");
 
-  let form = document.querySelector('form');
-  let ul = document.querySelector('ul');
-  let body = document.querySelector('body');
-  let par = document.createElement('p');
-
-
-
-  form.addEventListener('submit', (event) => {
+  form.addEventListener("submit", event => {
     event.preventDefault();
-    let div = document.createElement('div');
-    let liItem = document.createElement('li');
-    let button = document.createElement('button');
-
+    let div = document.createElement("div");
+    let liItem = document.createElement("li");
+    let button = document.createElement("button");
 
     // // when item is clicked puts a line through then only if the item  has a line through will it then allow button to remove the item.
-    liItem.addEventListener('click', (event) => {
-      event.target.style = "text-decoration: line-through";
+    liItem.addEventListener("click", event1 => {
+      event1.target.style = "text-decoration: line-through";
 
-      if (event.target.style.textDecoration === "line-through") {
-        button.addEventListener('click', (event) => {
-            event.target.parentNode.remove();
-        });
+
+    });
+    button.addEventListener("click", event2 => {
+
+      if (event2.target.parentNode.children[0].style.textDecoration
+=== "line-through") {
+        event2.target.parentNode.remove();
+      } else {
+        alert("Please cross off items before attempting to delete.");
       }
     });
 
-    // Problem - it also alerts just before deleting the node when the item is actually crossed off.
-    button.addEventListener('click', (event) => {
-      if (event.target.style.textDecoration !== "line-through"){
-        alert('Please cross off items before attempting to delete.');
-      }
-    });
 
-    if (document.querySelector('.textbox').value === '') {
-      par.innerText = 'Error';
+    if (document.querySelector(".textbox").value === "") {
+      par.innerText = "Error";
       body.append(par);
-
     } else {
-      liItem.innerText = document.querySelector('.textbox').value;
-      button.innerText = 'Button';
+      liItem.innerText = document.querySelector(".textbox").value;
+      button.innerText = "Button";
       div.append(liItem, button);
-      ul.append(div)
+      ul.append(div);
       form.reset();
 
-
-      // console.log([liItem][0].childNodes);
-      // [liItem][0].childNodes.forEach(el=> {
-      //   if (el === typeof string) {
-      //     div.append(el,button);
-      //   };
-      // })
-    }
-  });
+      console.log([liItem][0].childNodes);
+      let arr = [];
+      for (let i = 0; i < liItem.childNodes.length; i++) {
+        if (liItem.childNodes[i].data) {
+          arr.push(liItem.childNodes[i].data);
+        }
+      }
 
 
-  });
+      }
+    })
+});
