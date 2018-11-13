@@ -1,0 +1,100 @@
+h1 {
+  background: #993F6C;
+  color: white;
+  margin: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+#plus {
+  float: right;
+  font-weight: 900;
+}
+
+p {
+  color: #993F6C;
+  position: fixed;
+  top: 40px;
+  left: 40%;
+  font-size: 18px;
+  font-family: palatino;
+}
+
+.mybutton {
+  display: none;
+}
+
+.todo {
+  width: 360px;
+  margin: 100px auto;
+  background: #f7f7f7;
+  box-shadow: 0 0 3px rbga(0, 0, 0, 0.2);
+  border-top: 10px;
+}
+
+li.remove button {
+  float: right;
+  background: #893861;
+  text-align: center;
+  height: 40px;
+  font-family: palatino;
+  font-size: 20px;
+  color: white;
+  width: 0;
+  opacity: 0;
+  display: inline-block;
+  transition: 0.3s linear;
+}
+
+input {
+  font-size: 18px;
+  background: #f7f7f7;
+  width: 100%;
+  padding: 13px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  color: #993F6C;
+  font-family: palatino;
+  border: 3px solid rgba(0,0,0,0);
+}
+
+input:focus {
+  outline: none;
+  background: white;
+  border: 3px solid #993F6C;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font-family: palatino;
+  background: #BA5370;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F4E2D8, #BA5370);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F4E2D8, #BA5370); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+li {
+  background: #fff;
+  height: 40px;
+  line-height: 40px;
+  color: #666;
+  padding-left: 20px;
+}
+
+li:nth-child(2n){
+  background: #f7f7f7;
+}
+
+/* li.remove button {
+  opacity: 0;
+} */
+
+ li.remove:hover button {
+   width: 45px;
+  opacity: 1;
+}
