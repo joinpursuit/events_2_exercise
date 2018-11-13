@@ -1,0 +1,10 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  background-image: url(http://media.giphy.com/media/TCaq4FekwSV5m/giphy.gif);
+  background-color: black;
+}
+
+.header {
+  text-align: center;
+}
