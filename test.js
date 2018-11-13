@@ -1,30 +1,32 @@
-document.addEventListener("DOMContentLoaded", () => {
-  let button = document.getElementById("submit");
-  let input = document.getElementById("myInput");
-  let form = document.getElementById("todoform");
-  let ul = document.getElementById("todolist");
-  let myLis = document.getElementsByTagName("LI");
-  // let body = document.getElementsByTagName('LI');
+document.addEventListener('DOMContentLoaded', () => {
+  let button = document.getElementById('submit');
+  let input = document.getElementById('myInput');
+  let form = document.getElementById('todoform');
+  let ul = document.getElementById('todolist');
+  let myLis = document.getElementsByTagName('LI');
 
-  button.addEventListener("click", event => {
+  let error = document.createElement('p');
+  error.innerText = 'insert a valid input';
+  let errorMes = document.body.appendChild(error);
+  errorMes.style.display = 'none';
+
+  button.addEventListener('click', event => {
     event.preventDefault();
 
-    // form.reset();
     if (input.value.length === 0) {
-      let error = document.createElement("p");
-      error.innerText = "insert a valid input";
-      form.appendChild(error);
+      errorMes.style.display = 'block';
     } else {
-      let newLi = document.createElement("li");
+      let newLi = document.createElement('li');
       newLi.innerText = input.value;
       ul.appendChild(newLi);
-      input.value = null;
+      input.value = null; //OR! form.reset();
+      errorMes.style.display = 'none';
     }
   });
 
-  ul.addEventListener("click", event1 => {
-    if (event1.target.tagName === "LI") {
-      event1.target.style.textDecoration = "line-through";
+  ul.addEventListener('click', event1 => {
+    if (event1.target.tagName === 'LI') {
+      event1.target.style.textDecoration = 'line-through';
     }
   });
 });
