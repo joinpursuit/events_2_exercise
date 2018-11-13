@@ -1,27 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
 	let button = document.querySelector(".mybutton");
 	let list = document.querySelector(".mylist");
-	// let alert = document.querySelector(".myptag");
+	
+	let error = document.createElement('p');
+	error.innerText = "Cannot add empty To-Do";
+	let message = document.body.appendChild(error);
+	message.style.color = "red";
+	message.style.display = "none";
 
 	button.addEventListener("click", (event1) => {
 		event1.preventDefault();
 
-		let input = document.querySelector(".myinput").value;
+		let input = document.querySelector(".myinput");
 		let newLi = document.createElement("li");
 
-		if(input.length !== 0){
+		if(input.value.length !== 0){
 			list.appendChild(newLi);
-			newLi.innerHTML = input + " <button>Remove</button>";
+			newLi.innerHTML = input.value + " <button>Remove</button>";
+			input.value = null;
+			message.style.display = "none";
+		} else {
+			message.style.display = "block";
 		}
 	});
-
-
-
-
-
-
-
-
 
 	list.addEventListener("click", (event2) => {
 		if(event2.target.tagName === "LI" && event2.target.style.textDecoration !== "line-through"){
