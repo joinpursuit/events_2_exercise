@@ -13,8 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (textInput) {
         let newLi = document.createElement("li");
+        let newButton = document.createElement("button");
         newLi.innerText = textInput;
-        ul.appendChild(newLi)
+        newButton.innerText = "Remove";
+        ul.appendChild(newLi);
+        ul.appendChild(newButton)
 
 
         newLi.addEventListener("click", event => {
@@ -26,10 +29,20 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         })
 
+        newButton.addEventListener("click", event => {
+          if (newLi.style.textDecoration !== "line-through") {
+            alert("First cross out this To-Do.")
+          } else
+          if (newLi.style.textDecoration === "line-through") {
+            newLi.parentNode.removeChild(newLi)
+            newButton.parentNode.removeChild(newButton)
+          }
+        })
+
       }else {
         let newP = document.createElement("p");
         // console.log(newP);
-        newP.innerText = "Error";
+        newP.innerText = "Error. You didn't add a To-Do.";
         form.appendChild(newP)
       }
     })
