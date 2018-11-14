@@ -1,0 +1,112 @@
+html, body, header, nav, h1, a,
+ul, ol, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* my stuff: */
+
+
+body {
+  display: grid;
+  grid-template-columns: 5% 40% 50% 5%;
+  grid-template-rows: 100px 1fr;
+  background-image: url("https://i.pinimg.com/originals/d4/ee/d1/d4eed1a548cb81726bf6b1c2a4272b25.jpg");
+}
+
+h1 {
+  grid-column: 2 / span 2;
+  grid-row: 1;
+  font-size: 50px;
+}
+
+form {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: lightgrey;
+  opacity: 0.5%;
+  border-radius: 5%;
+  padding: 20px;
+
+}
+
+input {
+  background-color: white;
+  border-radius: 5%;
+  padding: 5px;
+}
+
+button {
+  margin-left: 10px;
+  background-color: lightblue;
+  padding: 5px;
+  border-radius: 10%;
+}
+
+/* .toDoDiv {
+  grid-column: 3;
+  grid-row: 2;
+
+  background-color: lightgrey;
+  padding-left: 5%;
+  margin-left: 20px;
+  width: inherit;
+
+} */
+
+ul {
+  /* display: inline-flex; */
+
+  grid-column: 3;
+  grid-row: 2;
+
+  background-color: lightgrey;
+  padding-left: 5%;
+  margin-left: 20px;
+  width: inherit;
+}
+
+li {
+  background-color: white;
+  border-radius: 5%;
+  padding-left: 5px;
+  margin-left: 10px;
+}
