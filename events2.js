@@ -16,6 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
         newLi.innerText = textInput;
         ul.appendChild(newLi)
 
+
+        newLi.addEventListener("click", event => {
+
+          if (event.target.style.textDecoration !== "line-through"){
+            event.target.style.textDecoration = "line-through"
+          } else {
+            event.target.style.textDecoration = "none"
+          }
+        })
+
       }else {
         let newP = document.createElement("p");
         // console.log(newP);
@@ -23,22 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
         form.appendChild(newP)
       }
     })
-
-
-    let findLi = document.querySelectorAll("li");
-    // console.log("findLi", findLi);
-
-    findLi.forEach(elem => {
-      elem.addEventListener("click", event => {
-
-        if (event.target.style.textDecoration !== "line-through"){
-          event.target.style.textDecoration = "line-through"
-        } else {
-          event.target.style.textDecoration = "none"
-        }
-
-      })
-    });
 
 });
 
