@@ -1,25 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
   let form = document.querySelector('form');
   let input = document.querySelector('input');
+  let ul = document.querySelector('ul');
+
+  ul.addEventListener('click', (e) => {
+    // console.log(e, e.currentTarget, e.target);
+    let todo = e.target;
+    if (todo.classList.contains('todo')) {
+      if (!todo.classList.contains('completed')) {
+        todo.classList.add('completed');
+        let btn = document.createElement('button');
+        btn.innerText = 'X';
+        btn.classList.add('remove');
+        todo.parentNode.appendChild(btn);
+      }
+    } else if (todo.classList.contains('remove')) {
+      todo.parentNode.remove();
+      // console.log('remove', todo);
+    }
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     let todo = input.value.trim();
     todo ? clearInputAddTodo(todo) : clearError();
-    // console.log(input, input.value);
-    //console.log(e, e.target);
   });
+
 });
 
 const clearInputAddTodo = (todo) => {
   let ul = document.querySelector('ul');
   let li = document.createElement('li');
-  li.innerText = `${todo}`;
+  // li.classList.add('todo');
+  let todoSlice = todo.length > 20 ? todo.slice(0, 20) : todo;
+  li.innerHTML = `<p class='todo'>${todoSlice}</p>`;
+  // li.style.backgroundColor = getColor();
   ul.appendChild(li);
   document.querySelector('input').value = '';
   if (errMsg.active) {
     errMsg.clear();
   }
 };
+
+const rgb = () => (Math.floor(Math.random() * 256));
+
+const getColor = ()=> ('rgb(' + rgb() + ',' + rgb() + ',' + rgb() + ')');
 
 const clearError = () => {
   document.querySelector('input').value = '';
