@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
       //---------------------------
       // if there is no inner text:
       // //--------------------------------
-      let textInput = document.querySelector(".input").innerText;
+      let input = document.querySelector(".input");
+      let textInput = input.innerText;
       let newP = document.createElement("p");
 
       newP.innerText = "Error";
@@ -22,17 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
       let textInput; = document.querySelector(".input").innerText;
 
       if (!textInput) {
-
-        form.addEventListener("submit", event => {
-        event.preventDefault();
+        //
+        // form.addEventListener("submit", event => {
+        // event.preventDefault();
 
         let input = document.querySelector(".input");
         let textInput= input.value;
         let ul = document.querySelector("ul");
-
-    // console.log("theUl", theUl);
-
-        let newLi = document.createElement("li");
+        let newLi = ul.createElement("li");
         console.log(input);
         console.log(textInput);
         // let innerLi = newLi.innerText;
@@ -55,15 +53,34 @@ document.addEventListener("DOMContentLoaded", () => {
         // body.addEventListener("click", event => {
 
         let findLi = document.querySelectorAll("li");
-        console.log("findLi", findLi);
+        // console.log("findLi", findLi);
+
 
         findLi.forEach(elem => {
-          findLi.addEventListener("click", event => {
-            event.target.style.textDecoration = "line-through"
-          })
+          elem.addEventListener("click", event => {
+
+            if (event.target.style.textDecoration !== "line-through"){
+              event.target.style.textDecoration = "line-through"
+            } else {
+              event.target.style.textDecoration = "none"
+            }
+
+
         })
-      }
-    })
+      })
 
 
 })
+
+//if text:
+query selct the ul that is already made - line 2.
+
+on submit, check innerText:
+line 7: if there is text, create li inside the ul.
+assign the content of the input text to the li.innerText.
+
+else if no text,:
+
+line 10: create p tag. ptag.innertext = "Error"
+
+.
