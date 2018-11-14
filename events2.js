@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    let form = document.querySelector(".form")
-//
+    let form = document.querySelector(".form");
+    let input = document.querySelector(".input");
+    let textInput = input.innerText;
+
     form.addEventListener("submit", event => {
       event.preventDefault();
       //---------------------------
       // if there is no inner text:
       // //--------------------------------
-      let input = document.querySelector(".input");
-      let textInput = input.innerText;
+
       let newP = document.createElement("p");
 
       newP.innerText = "Error";
