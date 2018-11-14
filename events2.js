@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       }else {
         let newP = document.createElement("p");
+        // console.log(newP);
         newP.innerText = "Error";
-        newP.appendChild(newP)
+        form.appendChild(newP)
       }
     })
 
