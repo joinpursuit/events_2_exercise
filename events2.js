@@ -4,14 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let input = document.getElementById('textInput');
   let form = document.getElementById('listForm');
 
-  function error () {
-    let error = document.getElementById('error');
-    error.innerText = 'Please input text!';;
-    form.appendChild(error)
-  }
-
-  // function crossoutWord() {
-  //   event.target
+  let error = document.getElementById('error');
+  error.innerText = 'Please input text!';;
+  form.appendChild(error)
+  error.style.display = "none"
+  // function error () {
   // }
 
 
@@ -19,21 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     let create = document.createElement('li');
     if(input.value === "") {
-      error();
-      form.reset();
+      // error();
+      error.style.display = "block"
     }else {
       create.innerText = input.value
-      event.target.parentNode.appendChild(create, event.target);
+      display.appendChild(create, event.target);
+      input.value = null
+      error.style.display = "none"
+
     }
+    // form.reset()
 
   })
 
-  display.addEventListener('click', event1 => {
-    let line = document.createElement('li');
-    if(event1.target.tagName === 'LI') {
-      event1.target.style.textDecoration = 'line-through'
+  display.addEventListener('click', colorline => {
+    if(colorline.target.tagName === 'LI') {
+      colorline.target.style = "text-decoration: line-through";
     }
-
   })
 
 })
