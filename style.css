@@ -24,11 +24,12 @@ form {
   padding: 10px;
 }
 
-p{
+p, li{
   padding: 10px;
   background: lightyellow;
   border-radius: 5px;
   border: white solid 2px;
   margin: 10px;
   margin-bottom: 10px;
+
 }
