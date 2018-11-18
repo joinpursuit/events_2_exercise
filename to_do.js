@@ -24,20 +24,3 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   })
 })
-
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//
-// const item = () => {
-//   let newItem = document.createElement("li");
-//   newItem.innerText = input.value;
-//   list.appendChild(newItem);
-//   form.reset()
-//     }
-//   const errorMessage = () => {
-//     let error = document.querySelector("p");
-//     if(input.value.length < 1){
-//       let throwErr = error.innerHTML = "Please Add Something to the List"
-//       form.appendChild(error)
-//     }
-//   }
