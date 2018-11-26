@@ -9,26 +9,47 @@ document.addEventListener('DOMContentLoaded', () => {
   let input = document.querySelector('#add_item');
   // let submit_item = document.
 
+
+  // const removeItemButt = () => {
+  //   let rmButt = document.createElement('button');
+  //   rmButt.innerHTML = 'Remove';
+  //   item.appendChild(rmButt)
+  // }
+
+
+
   const addItem = () => {
+    if (error()) {
+      error().remove();
+    }
     let item = document.createElement('li');
     item.innerHTML = input.value;
     to_do.appendChild(item);
+
+    let rmButt = document.createElement('button');
+    rmButt.innerHTML = 'Remove';
+    item.appendChild(rmButt)
+
+    rmButt.addEventListener('click', () => {
+      item.remove();
+    })
+
     form.reset();
   };
   // if user writes nothing; page shows error message
   // pressing submit when nothing is entered
 
+  let errorMes = document.createElement('p');
+
   const error = () => {
-    let errorMes = document.createElement('p');
-    if (input.value.length < 1) {
-       let throwErr = errorMes.innerHTML = `Please input a value.`;
-       errorMes.style.color = 'red';
-       form.appendChild(errorMes);
-    }
+        errorMes.innerHTML = `Please input a value.`;
+        errorMes.style.color = 'red';
+        return form.appendChild(errorMes);
   }
 
+
   const crossOff = (event) => {
-    event.target;
+    event.target.style.setProperty('text-decoration', 'line-through');
   }
 
   submit.addEventListener('click', (event) => {
@@ -38,15 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
     error();
   }
     event.preventDefault();
-
 })
+
+  // submit.addEventListener('click', () => {
+  //
+  // })
 
 // when user clicks on li; item strikes out
 // pressing submit updates style of li to strikethrough
 
 to_do.addEventListener('click', (event) => {
-  console.log(event.target)
-  event.target.style.setProperty('text-decoration', 'line-through');
+  crossOff(event);
 })
 
 
