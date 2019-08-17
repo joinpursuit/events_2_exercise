@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<h1>My To-Dos</h1>
+<form><input type = "text"></input> <input type="submit" /></form>
+<p></p>
+<ul></ul>
+<script>
+let form = document.querySelector('form');
+
+
+ form.addEventListener('submit',(evt)=>{
+   let input = document.querySelector('input')
+   let p = document.querySelector('p')
+ evt.preventDefault()
+ if(input.value){
+ let ul = document.querySelector('ul')
+ let li = document.createElement('li')
+ li.innerText = input.value
+ ul.addEventListener('click',(evt)=>{
+ evt.target.style.textDecoration = "line-through"
+
+})
+ ul.appendChild(li)
+ p.innerText = ""
+ input.value = ""
+}
+ else{
+   p.innerText = "Error. To-do cannot be empty"
+ }
+
+})
+</script>
+</body>
+</html>
