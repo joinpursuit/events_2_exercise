@@ -47,33 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
         errorCatch.innerText = ''
         // myItems.innerText = newItems.value
         let myArray = newItems.value.split('\n')
-console.log(myArray)
+        console.log(myArray)
         
         for (let i of myArray) {
             let myList = document.querySelector('#my_Unordered_list');
             let myItems = document.createElement('li');
             let deleteButton = document.createElement('button')
-
-            myList.appendChild(i)
+            
+            myItems.innerText = i
+            
+            myList.appendChild(myItems)
             myItems.appendChild(deleteButton);
 
             deleteButton.innerHTML = 'Delete'
             deleteButton.id = 'delBtn'
             deleteButton.onclick = function () {
                 deleteButton.parentNode.removeChild(deleteButton)
-                myItems.parentNode.removeChild(i)
+                myItems.parentNode.removeChild(myItems)
                 }
         }
-        // myList.appendChild(myItems)
-        // myItems.appendChild(deleteButton);
-        // deleteButton.innerHTML = 'Delete'
-        // deleteButton.id = 'delBtn'
-        // deleteButton.onclick = function () {
-        //     deleteButton.parentNode.removeChild(deleteButton)
-        //     myItems.parentNode.removeChild(myItems)
-   
-        //     }
-        newItems.value = ''
+
+        // newItems.value = ''
         }
     })
 })
