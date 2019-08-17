@@ -1,0 +1,20 @@
+h1 {
+  color: purple;
+  font-size: 75px;
+}
+
+
+li {
+  color: purple;
+  font-size: 25px;
+}
+
+
+label {
+  color: blue;
+  font-size: 25px;
+}
+
+body {
+  background-color: black
+}
