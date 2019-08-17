@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 	let form  = document.querySelector('#form');
 	let list = document.querySelector('#list');
+
+
 	form.addEventListener('submit', (e) => {
 		console.log(e);
 		e.preventDefault();
@@ -13,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			newButton.className = 'delete';
 			newButton.innerText = 'Delete';
 			newItem.innerText = value;
+			newButton.addEventListener('click', () => {
+				newButton.parentNode.parentNode.removeChild(newItem);
+			})
 			newItem.appendChild(newButton);
 			list.appendChild(newItem);
 			error.innerText = '';
@@ -25,11 +30,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	})
 
+
+
 	list.addEventListener('click', event => {
-		let target = event.target;
-		target.style.textDecoration = 'line-through'
+		if(event.target.style.textDecoration !== 'line-through'){
+			event.target.style.textDecoration = 'line-through';
+		}
+		else {
+			event.target.style.textDecoration = 'none'
+		}	
 	})
 
 
 })
+
+function deleteItem(e){
+		console.log('ajdskljjlsajlksajlkalsjkjlasljsajlas');
+	}
 
