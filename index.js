@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Strikethrough via Bubble-to-UL
     let listWhere = document.querySelector('#listUL');
     listWhere.addEventListener('click', (e) => {
-        e.target.style.textDecoration !== "line-through"
-          ? e.target.style.textDecoration = "line-through"
-          : e.target.style.textDecoration = "none";
+        if (e.target && e.target.nodeName === 'SPAN') {
+          e.target.style.textDecoration !== "line-through"
+            ? e.target.style.textDecoration = "line-through"
+            : e.target.style.textDecoration = "none";
+        };
     } );
 
     // Add New List Item System
@@ -66,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let entryArrayed = entry
         .replace('\r', '\n')
         .split('\n');
-
+      
       if (!entry || !entryArrayed.join('')) { // checks against empty inputs
         document.querySelector('#error').innerHTML = "<strong>Error:</strong> Empty input. Try again.";
         resetInput();
