@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault()
         let myList = document.querySelector('#my_Unordered_list');
         let newItem = document.querySelector('#new_item');
-        let newItems = document.querySelector('#new_items');
         let myItem = document.createElement('li');
-        let myItems = document.createElement('li');
         let deleteButton = document.createElement('button')
         let errorCatch = document.querySelector('#error_message')
 
@@ -14,10 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
             errorCatch.innerText = 'Error. Todo cannot be empty.'
         } else {    
         errorCatch.innerText = ''
-        myItem.innerText = newItem.value
-        myItems.innerText = newItems.value
 
-                
+        myItem.innerText = newItem.value
+        
         myList.appendChild(myItem)
         myItem.appendChild(deleteButton);
         deleteButton.innerHTML = 'Delete'
@@ -36,25 +33,27 @@ document.addEventListener('DOMContentLoaded', () => {
     let formButton2 = document.querySelector('#form2')
     form2.addEventListener('submit', (event) => {
         event.preventDefault()
-        let newItem = document.querySelector('#new_item');
         let newItems = document.querySelector('#new_items');
-        let myItem = document.createElement('li');
+        let myItems = document.createElement('li');
+
         let errorCatch = document.querySelector('#error_message')
 
         if (newItems.value === '') {
             errorCatch.innerText = 'Error. Todo cannot be empty.'
         } else {    
         errorCatch.innerText = ''
-        // myItems.innerText = newItems.value
+
+        myItems.innerText = newItems.value
+
         let myArray = newItems.value.split('\n')
         console.log(myArray)
         
-        for (let i of myArray) {
+        for (let element of myArray) {
             let myList = document.querySelector('#my_Unordered_list');
             let myItems = document.createElement('li');
             let deleteButton = document.createElement('button')
             
-            myItems.innerText = i
+            myItems.innerText = element
             
             myList.appendChild(myItems)
             myItems.appendChild(deleteButton);
@@ -64,10 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteButton.onclick = function () {
                 deleteButton.parentNode.removeChild(deleteButton)
                 myItems.parentNode.removeChild(myItems)
+                console.log(element)
                 }
+            
+            // myItems.value = ''
         }
 
-        // newItems.value = ''
+        newItems.value = ''
         }
     })
 })
