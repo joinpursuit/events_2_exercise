@@ -1,20 +1,22 @@
 document.addEventListener("DOMContentLoaded", () =>{
+    document.body.style.fontFamily = "Georgia";
+
     let myList= document.querySelector("#myList");
 ////////////////////////////////////////////////////////////////////
-    let submitItem = document.querySelector("#submit_input");
-    submitItem.addEventListener("click", (event) => {
+    let submitItemForm = document.querySelector("#submit_input");
+    submitItemForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
         let inputText = document.querySelector("input").value;
         let input = [inputText];
 
         addToDoItems(input);
-        document.querySelector("input").value = "";
+        submitItemForm.querySelector("input").value = "";
     })
 
 ////////////////////////////////////////////////////////////////////
-    let submitList = document.querySelector("#submit_textarea");
-    submitList.addEventListener("click", (event) => {
+    let submitListForm = document.querySelector("#submit_textarea");
+    submitListForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
         let inputList = document.querySelector("textarea").value;
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
 
         addToDoItems(filteredList);
-        document.querySelector("textarea").value = "";
+        submitListForm.querySelector("textarea").value = "";
     })
 
 ///////////////////////////////////////////////////////////////////
@@ -38,8 +40,10 @@ document.addEventListener("DOMContentLoaded", () =>{
         if (parent === myList) {
             if (clickedItem.style.textDecoration === "line-through") {
                 clickedItem.style.textDecoration = "initial";
+                clickedItem.style.color = "initial";
             } else {
                 clickedItem.style.textDecoration = "line-through";
+                clickedItem.style.color = "gray"
             }
         } else {
             if (clickedItem.innerText === "Remove task if DONE" 
@@ -60,8 +64,8 @@ document.addEventListener("DOMContentLoaded", () =>{
         if (listItemExist && !deleteIstructionParagraph) {
             let deleteInstruction = document.createElement("p");
             deleteInstruction.setAttribute("id", "delete_instructions");
-            deleteInstruction.innerText = "Remove task if DONE will delete a task only if it's crossed out"
-            document.body.appendChild(deleteInstruction)
+            deleteInstruction.innerText = "Remove task if DONE will delete a task only if it's crossed out";
+            document.body.appendChild(deleteInstruction);
         }
 
     })
@@ -102,7 +106,10 @@ const addToDoItems = (list) => {
         for (let task of list) {
             let newListItem = document.createElement("li");
             newListItem.innerText = task + " ";
+            newListItem.style.fontFamily = "Comic Sans MS"
+            newListItem.style.fontSize = "x-large";
             myList.appendChild(newListItem);
+            console.dir(newListItem)
 
             let removeTask = document.createElement("button");
             removeTask.innerText = "Remove task if DONE";
@@ -113,7 +120,7 @@ const addToDoItems = (list) => {
             newListItem.appendChild(deleteButton);
         }
     
-        if (errorParagraph !== null){
+        if (errorParagraph){
             document.body.removeChild(errorParagraph);
         }
     }
