@@ -1,23 +1,26 @@
    <!DOCTYPE html>
         <html>
-            <head>
-                
-                <script src = "Events_lab.js"></script>
+            <head>              
+                <script src = "./Events_lab.js"></script>
                 <title>Events Lab</title>
             </head>
             <body>
                 <h1>My To-Dos</h1>
 
-                <ul id = "listCategory">To Do List</ul>
-
-                <form id = "new_to_do">
+                <form id = "new_todo">
                     <input type = "text" id = "new_task">
                     <button id = "userClick"
                             onclick = "addNewTask()"
                             >
                             SUBMIT
                     </button>
-                </form>
+                    </form>
 
+                <p id = "errorPara"></p>
+
+                <ul id = "listCategory">To Do List</ul>
+
+
+                
             </body>
         </html>
