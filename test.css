@@ -1,24 +1,24 @@
 h1 {
-  color: purple;
+  color: blue;
   font-size: 75px;
 }
 
 
  p {
-  color: red;
-} 
+  color: white;
+}
 
 li {
-  color: purple;
+  color: blue;
   font-size: 25px;
 }
 
 
 label {
-  color: blue;
+  color: white;
   font-size: 25px;
 }
 
 * {
-  background-color: green;
+  background-color: aquamarine;
 }
