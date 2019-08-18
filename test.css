@@ -4,6 +4,10 @@ h1 {
 }
 
 
+ p {
+  color: red;
+} 
+
 li {
   color: purple;
   font-size: 25px;
@@ -15,6 +19,6 @@ label {
   font-size: 25px;
 }
 
-body {
-  background-color: black
+* {
+  background-color: green;
 }
