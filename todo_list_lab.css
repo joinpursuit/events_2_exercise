@@ -1,0 +1,53 @@
+html {
+    background-color: royalblue;
+    width: 400px;
+    height: 400px;
+    margin: 5px;
+    padding: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    color: gold;
+    font-size: 50;
+    font-style: italic
+}
+
+p {
+    color: red;
+    font-size: 100;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    color: black;
+    font-size: 25px;
+    font-style: oblique;
+}
+
+input {
+    height: 25px;
+    border-radius: 8px;
+    width: 200px;
+}
+
+button.submit {
+    background-color: green;
+    text-emphasis-color: white;
+    font-size: 13px;
+    border-radius: 10px;
+    font-style: oblique
+}
+
+button.delete {
+    background-color: brown;
+    font-style: italic;
+    border-radius: 8px;
+    font-style: oblique;
+    font-size: 15px;
+    color: blanchedalmond;
+}
