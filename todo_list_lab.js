@@ -3,12 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', newList)
 })
 
-function newList(event) {
+function newList(Event) {
     /* This section prevents the form from performing its default action of trying
     to submit somewhere. While also assigning the new variables the elements and
     creating the new lis items
      */
-    event.preventDefault()
+    Event.preventDefault()
+    // event.preventDefault()
     let unOderList = document.querySelector('ul')
     let no_input = document.querySelector('p')
     let input = document.querySelector('input').value
@@ -22,9 +23,9 @@ function newList(event) {
         // then adding an event listener to the individual items which clicked, items crossed through
         no_input.innerText = '';
 
-        newListItem.innerText += `${input} `
-        unOderList.appendChild(newListItem).addEventListener('click', (event) => {
-            let target = event.target
+        newListItem.innerText += `${input}    `
+        unOderList.appendChild(newListItem).addEventListener('click', (Event) => {
+            let target = Event.target
             if (target.style.textDecoration !== "line-through") {
                 target.style.textDecoration = "line-through"
             } else {
@@ -37,7 +38,8 @@ function newList(event) {
         entire list
         */
         let deleteButton = document.createElement('button')
-        deleteButton.innerText = 'delete'
+        deleteButton.innerText = 'Delete'
+        deleteButton.className = 'delete'
         newListItem.appendChild(deleteButton)
         deleteButton.addEventListener('click', (event) => {
             unOderList.removeChild(newListItem)
