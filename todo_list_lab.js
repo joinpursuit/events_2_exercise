@@ -20,6 +20,8 @@ function newList(event) {
     } else {
         // assigning the user input into the list item to be printed to the screen
         // then adding an event listener to the individual items which clicked, items crossed through
+        no_input.innerText = '';
+
         newListItem.innerText += `${input} `
         unOderList.appendChild(newListItem).addEventListener('click', (event) => {
             let target = event.target

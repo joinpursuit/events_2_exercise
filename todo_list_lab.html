@@ -6,20 +6,23 @@
         Todo List Lab
     </title>
     <script src='./todo_list_lab.js'></script>
+    <link rel="stylesheet" href="todo_list_lab.css">
 </head>
 
 <body>
     <h1 id="heading">My To-Dos</h1>
+
+
+    <form id="form_id">
+
+        <input type="text" name="To-Dos" id="todo_list" placeholder="Type a todo" multiple />
+        <button id="button">Submit</button>
+    </form>
+
+    <p id="error"></p>
+    <ul id="list"></ul>
+
+
 </body>
-
-<form id="form_id">
-
-    <input type="text" name="To-Dos" id="todo_list" placeholder="Type a todo" />
-    <button id="button">Submit</button>
-
-</form>
-
-<p id="error"></p>
-<ul id="list"></ul>
 
 </html>

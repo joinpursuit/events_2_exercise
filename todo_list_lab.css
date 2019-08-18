@@ -1,0 +1,24 @@
+h1 {
+    color: gold;
+    font-size: 50;
+}
+
+p {
+    color: red;
+    font-size: 100;
+}
+
+li {
+    color: salmon;
+    font-size: 20px;
+}
+
+html {
+    background-color: royalblue;
+    width: 350px;
+    height: 400px;
+    margin: 155px;
+    border: 5px solid goldenrod;
+    padding: 110px;
+    display: inline;
+}
