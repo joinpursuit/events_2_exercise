@@ -4,7 +4,7 @@ const h1 = document.createElement('h1');
 const ul = document.createElement('ul');
 const form = document.createElement('form');
 const label = document.createElement('label');
-const inputText = document.createElement('input');
+const inputText = document.createElement('textarea');
 const inputButton = document.createElement('input');
 // Creating the error node that gets appended only if there is no text input
 const error = document.createElement('p');
@@ -32,26 +32,32 @@ function layout() {
 }
 // Helper function that creates a new li element with the input text that gets appened to the ul
 function addToList() {
-    const li = document.createElement('li');
-    const inputValue = document.createTextNode(inputText.value);
-    const deleteBtn = document.createElement('button');
-    deleteBtn.setAttribute('type', 'button');
-    deleteBtn.innerText = 'Delete';
-
-    li.appendChild(inputValue);
-    deleteBtn.addEventListener('click', deleteItem);
-    li.addEventListener('click', crossOutElement);
-    li.appendChild(deleteBtn);
-    ul.appendChild(li);
+    const text = inputText.value.trim().split('\n');
+    text.forEach(ele => {
+        const li = document.createElement('li');
+        const inputValue = document.createTextNode(ele);
+        const deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute('type', 'button');
+        deleteBtn.innerText = 'Delete';
+    
+        li.appendChild(inputValue);
+        deleteBtn.addEventListener('click', deleteItem);
+        li.addEventListener('click', crossOutElement);
+        li.appendChild(deleteBtn);
+        ul.appendChild(li);
+    })
 }
 // Prevents the form's default behavior which is to refresh the web page on submit
 function preventInputRefresh(e) {
     e.preventDefault();
-    if (inputText.value.trim().length > 0) {
+    if (inputText.value.length > 0) {
         if (root.contains(error)) { // Check if error msg exists on the DOM
             error.parentNode.removeChild(error);
         }
-        addToList();
+        // while (text.length) {
+        //     let item = text.shift();
+            addToList();
+        // }
     } else {
         emptyErrorInput(); // Adds the error node if the user submits a empty input
     }
@@ -75,5 +81,5 @@ function crossOutElement() {
 }
 
 document.addEventListener('DOMContentLoaded', layout);
-form.addEventListener('submit', preventInputRefresh);
-// inputButton.addEventListener('click', preventInputRefresh);
+// form.addEventListener('submit', preventInputRefresh);
+inputButton.addEventListener('click', preventInputRefresh);

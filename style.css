@@ -1,0 +1,52 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    background: rgba(32, 86, 202, 0.797);
+}
+#root {
+    width: 100vw;
+    height: 100vh;
+}
+h1 {
+    text-align: center;
+}
+label, textarea, input {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+}
+label {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+textarea {
+    border: 1px solid salmon;
+    width: 75%;
+    border-radius: 10px;
+    vertical-align: center;
+    font-size: 1.1rem;
+    margin: 10px auto;
+}
+li {
+    list-style: none;
+    position: relative;
+    left: 7%;
+    width: 80%;
+    padding: 1% 1%;
+    border-bottom: .12px solid rgba(1, 0, 0, 0.99);
+}
+li:hover {
+    background-color: rgba(26, 66, 152, 0.6);
+    box-shadow: 1px 1px 5px .5px rgba(77, 224, 250, .3);
+    border-radius: 10px;
+    transform: scale(1.03);
+    color: white;
+}
+button {
+    /* float: left; */
+    position: absolute;
+    right: 2%;
+}
