@@ -1,7 +1,7 @@
 /* Joseph P. Pasaoa */
 
 
-/*
+/* CSS RESETS -- Let's not try this this time
 html, body, header, nav, h1, a,
 ul, ol, li, strong, main, button, i,
 section, img, div, h2, p, form,
@@ -46,12 +46,21 @@ input[type="submit"] {
 }
 */
 
+html { 
+  background: url('./bg-notepad.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.8;
+}
+
 body {
   margin: 0 8px;
+  /* background: url('./bg-notepad.jpg') no-repeat left top; */
 }
 
 div#header {
-  background: url('./bg-notepad.jpg') no-repeat right top;
   margin: -8px;
   padding: 12px;
 }
@@ -62,4 +71,8 @@ h3 {
 
 p#error {
   color: red;
+}
+
+li {
+  color: white;
 }

@@ -9,16 +9,19 @@ const print = (logThis) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Strikethrough via Bubble-to-UL
+    let listWhere = document.querySelector('#listUL');
+    listWhere.addEventListener('click', (e) => {
+        e.target.style.textDecoration !== "line-through"
+          ? e.target.style.textDecoration = "line-through"
+          : e.target.style.textDecoration = "none";
+    } );
+
     // Add New List Item System
     const addItem = (value) => {
       let makingLI = document.createElement('li');
       let makingItem = document.createElement('span');
       makingItem.innerText = value;
-      makingItem.addEventListener('click', (event) => {
-          event.target.style.textDecoration !== "line-through"
-            ? event.target.style.textDecoration = "line-through"
-            : event.target.style.textDecoration = "none";
-      } );
       let makingPad = document.createElement('span');
       makingPad.innerText = " ";
       let makingDel = document.createElement('button');
@@ -26,20 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
       makingDel.innerText = "Del";
       makingDel.setAttribute('hidden', true);
       makingDel.addEventListener('click', (e) => {
-          e.target.parentNode.remove();
+        e.target.parentNode.remove();
       } );
       makingLI.appendChild(makingItem);
       makingLI.appendChild(makingPad);
       makingLI.appendChild(makingDel);
       makingLI.setAttribute('style', 'height: 20px;');
       makingLI.addEventListener('mouseover', (e) => {
-          makingDel.hidden = false;
+        makingDel.hidden = false;
       } );
       makingLI.addEventListener('mouseout', (e) => {
-          makingDel.hidden = true;
+        makingDel.hidden = true;
       } );
       
-      let listWhere = document.querySelector('#listUL');
+ 
       listWhere.appendChild(makingLI);
     };
     // Too long input error message creator
@@ -59,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       document.querySelector('#error').innerHTML = "&nbsp;";
 
-      let entry = newitem.value;
+      let entry = newitem.value.trim();
       let entryArrayed = entry
         .replace('\r', '\n')
         .split('\n');
@@ -100,12 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clear Completed Button Handler
     document.querySelector('#clearthedone').addEventListener('click', (e) => {
         let listedItems = document.querySelectorAll('span');
+        let itemsTrashed = 0;
         for (let item of listedItems) {
           if (item.style.textDecoration === "line-through") {
             item.parentNode.remove();
+            itemsTrashed += 1;
           }
         }
-        document.querySelector('#error').innerHTML = "Completed tasks cleared.";
+        document.querySelector('#error').innerHTML = `<span style="color: blue;">${itemsTrashed} completed tasks cleared</span>`;
+        itemsTrashed = 0;
         resetInput();
     } );
 } );
