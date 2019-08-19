@@ -1,0 +1,14 @@
+body {
+  /* Give your page a background color. Then, make it a gradient */
+  background-color: #748283;
+}
+
+h1{
+  color: white;
+}
+
+ul{
+  list-style-type: circle;
+  color: pink;
+  
+}
