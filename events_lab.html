@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <title>Events Lab</title>
+</head>
+<body>
+  <h1>TO-DOs</h1>
+  <p></p>
+  <form>
+    <input type="text">
+    <button>submit</button>
+  </form>
+  <ul></ul>
+  <script>
+    let para = document.querySelector("p")
+    let input = document.querySelector("input")
+    let list = document.querySelector("ul")
+    list.addEventListener('click', (event) => {
+      event.target.style.textDecoration = "line-through"
+    })
+    let form = document.querySelector("form")
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+      let item = document.createElement("li")
+      if (input.value === '') {
+        para.innerText = 'Error. Cannot be empty.'
+      } else {
+        para.innerText = ''
+        item.innerText = input.value
+        list.appendChild(item)
+      }
+    })
+  </script>
+  <u1>
+</body>
+</html>
