@@ -1,0 +1,78 @@
+/* Joseph P. Pasaoa */
+
+
+/* CSS RESETS -- Let's not try this this time
+html, body, header, nav, h1, a,
+ul, ol, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+*/
+
+html { 
+  background: url('./bg-notepad.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 0.8;
+}
+
+body {
+  margin: 0 8px;
+  /* background: url('./bg-notepad.jpg') no-repeat left top; */
+}
+
+div#header {
+  margin: -8px;
+  padding: 12px;
+}
+
+h3 {
+  margin-block-start: 0;
+}
+
+p#error {
+  color: red;
+}
+
+li {
+  color: white;
+}
