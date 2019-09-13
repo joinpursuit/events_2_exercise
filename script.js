@@ -45,7 +45,14 @@ function addToList(text, id, owner) {
     })
     .then(data => data.json())
     .then(res => {
+        res.forEach(ele => {
+            if (owner === ele.username) {
+                // If Owner does not exist, PUT the owner in /users then POST the new todo
+            }
+            // Regardless POST the new todo in /todos
+        })
         console.log(res.payload)
+
     })
     // })
 }
