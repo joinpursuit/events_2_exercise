@@ -3,7 +3,7 @@ body {
     margin: 0;
     box-sizing: border-box;
     font-size: 1.1rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     background: rgba(32, 86, 202, 0.797);
 }
 #root {
