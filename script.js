@@ -4,12 +4,13 @@ const h1 = document.createElement('h1');
 const ul = document.createElement('ul');
 const form = document.createElement('form');
 const label = document.createElement('label');
+const inputOwner = document.createElement('input');
 const inputIdNumber = document.createElement('input');
 const inputText = document.createElement('textarea');
 const inputButton = document.createElement('input');
 // Creating the error node that gets appended only if there is no text input
 const error = document.createElement('p');
-const errorMsg = document.createTextNode('You cannot add a empty to-do!');
+const errorMsg = document.createTextNode('Fill out all three input fields!');
 error.appendChild(errorMsg);
 // List of all existing li elements
 const li = document.querySelectorAll('li');
@@ -19,13 +20,17 @@ function layout() {
     form.setAttribute('action', '#');
     // form.setAttribute();
     label.innerHTML = 'To-Do: ';
+    inputOwner.setAttribute('type', 'text');
+    inputOwner.setAttribute('placeholder', 'Username');
+    inputOwner.setAttribute('autofocus', 'true');
     inputIdNumber.setAttribute('type', 'text');
+    inputIdNumber.setAttribute('placeholder', 'ID #');
     inputText.setAttribute('placeholder', 'Write your next to-do here.');
-    inputText.setAttribute('autofocus', 'true');
     inputButton.setAttribute('type', 'submit');
     inputButton.setAttribute('value', 'ADD');
     // Appending the form elements in order of display
     form.appendChild(label);
+    form.appendChild(inputOwner);
     form.appendChild(inputIdNumber);
     form.appendChild(inputText);
     form.appendChild(inputButton);
@@ -40,39 +45,48 @@ function addToList(text, id, owner) {
     // const text = inputText.value.trim().split('\n');
     // text.forEach(text, id, owner => {
     makeAndAppendTodo(text, id, owner);
+    console.log(owner)
     fetch('https://cors-anywhere.herokuapp.com/https://fsw62-todos-api.herokuapp.com/api/users', {
-        method: 'GET'
-    })
-    .then(data => data.json())
-    .then(res => {
-        res.forEach(ele => {
-            if (owner === ele.username) {
-                // If Owner does not exist, PUT the owner in /users then POST the new todo
-            }
-            // Regardless POST the new todo in /todos
+            method: 'GET'
         })
-        console.log(res.payload)
+        .then(data => data.json())
+        .then(res => {
+            res.payload.forEach(ele => {
+                if (owner === ele.username) {
+                    // If Owner does not exist, PUT the owner in /users then POST the new todo
+                    console.log(ele);
+                    addToApi(text, id, owner);
+                    return;
+                }
+                // Regardless POST the new todo in /todos
+            })
+            createNewUser(owner);
+            addToApi(text, id, owner);
+            console.log(res.payload)
 
-    })
+        })
     // })
 }
 // Prevents the form's default behavior which is to refresh the web page on submit
 function preventInputRefresh(e) {
     e.preventDefault();
     const id = inputIdNumber.value;
+    const owner = inputOwner.value;
     const text = inputText.value;
     // const owner = inputOwner.value;
 
-    if (text.length > 0) {
+    if (text.length > 0 && owner.length > 0 && id.length > 0) {
         if (root.contains(error)) { // Check if error msg exists on the DOM
             error.parentNode.removeChild(error);
         }
-        addToList(text, id);
+        addToList(text, id, owner);
+        // Clears the input text box after every submit
+        inputOwner.value = '';
+        inputIdNumber.value = '';
+        inputText.value = '';
     } else {
         emptyErrorInput(); // Adds the error node if the user submits a empty input
     }
-    inputIdNumber.value = '';
-    inputText.value = ''; // Clears the input text box after every submit
 }
 
 function emptyErrorInput() {
@@ -105,8 +119,9 @@ inputButton.addEventListener('click', preventInputRefresh);
 
 
 function getDataFromApi() {
-    fetch('https://cors-anywhere.herokuapp.com/https://fsw62-todos-api.herokuapp.com/api/todos',
-        {method: 'GET'}
+    fetch('https://cors-anywhere.herokuapp.com/https://fsw62-todos-api.herokuapp.com/api/todos', {
+                method: 'GET'
+            }
             //, {mode: 'no-cors', headers: {'Access-Control-Allow-Origin': '*'}}
         )
         .then((data) => data.json())
@@ -143,20 +158,41 @@ function makeAndAppendTodo(text, id, owner) {
 function deleteFromApi() {
     const idNumber = this.parentNode.querySelector('span').innerText;
     // console.log(idNumber)
-    fetch(`https://fsw62-todos-api.herokuapp.com/api/todos/${idNumber}`,
-        {method: 'DELETE'}
-    )
-    .then(res => {
-        console.log('Status: ', res.status)
-    })
-    .catch(err => {
-        console.log(err);
-    })
-    
+    fetch(`https://fsw62-todos-api.herokuapp.com/api/todos/${idNumber}`, {
+            method: 'DELETE'
+        })
+        .then(res => {
+            console.log('Status: ', res.status)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
 }
 
+function createNewUser(username) {
+    fetch('https://fsw62-todos-api.herokuapp.com/api/users/signup', {
+        method: 'POST',
+        headers: {
+            'username': `${username}`,
+            'mode': 'no-cors',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }).then(res => console.log(res));
+}
 
-
+function addToApi(text, id, username) {
+    fetch('https://fsw62-todos-api.herokuapp.com/api/todos', {
+        method: 'POST',
+        headers: {
+            'owner': `${username}`,
+            'id': `${id}`,
+            'text': `${text}`,
+            'mode': 'no-cors',
+            'Access-Control-Allow-Origin': '*'
+        }
+    }).then(res => console.log(res));
+}
 
 
 
