@@ -3,17 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let toDoContainer = document.querySelector("ul");
   let inputForm = document.querySelector("form")
 
-// function submitAction() {
-//   let submit = document.querySelector("#submitToDo");
-//   submit.addEventListener("click", () => {
-//     let newItem = document.createElement("li");
-//     document.getElementById("ul").appendChild(newItem);
-//     newItem.innerText = toDoItem.value;
-//     event.preventDefault();
-//   })
-// }
-
-inputForm.addEventListener("submit", (event) => {
+  inputForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   let liToDo = document.createElement("li");
