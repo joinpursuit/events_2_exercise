@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let inputForm = document.querySelector("form")
 
   inputForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+  event.preventDefault(); //so we can keep adding items w/o refresh
 
   let liToDo = document.createElement("li");
   liToDo.innerText = toDoInput.value;
@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     toDoContainer.appendChild(liToDo);
     toDoInput.value = "";
   } else {
-    window.alert("error");
+    let noInput = document.getElementById("noInputWarning");
+    noInput.innerText = "You didn't enter a task!";
   }
   console.log("test submission");
 })
