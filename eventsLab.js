@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     noInput.innerText = "You didn't enter a task!";
   }
   console.log("test submission");
-})
+  })
 
-toDoContainer.addEventListener("click", (event) => {
-  console.log("test");
-})
+  toDoContainer.addEventListener("click", (event) => {
+    event.target.style.textDecoration= "line-through";
+  })
 
 })
