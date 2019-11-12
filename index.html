@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Events Lab Todo List</title>
+        <script src="./index.js"></script>
+        <style>
+                body {background-color: powderblue;}
+                h1   {color: blue;}
+                p    {color: red;}
+        </style>
+    </head>
+    <body>
+        <h1>To-Dos</h1>
+        <form id="form1">
+            <p>Edit your list</p>
+            <p>New Item: <input id="new_item" placeholder="Enter an Item" type="text"></p>
+            <button>Submit</button>
+        </form>
+        <form id="form2">
+            <p>Multiple Items: <textarea id="new_items" cols="40" rows= "10"></textarea></p>
+            <button>Submit</button>
+
+        </form>
+        <p id="error_message"></p>
+        <ul id="my_Unordered_list"></ul>
+    </body>
+</html>
