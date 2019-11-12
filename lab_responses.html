@@ -1,0 +1,52 @@
+<html>
+   <head>
+      <link href="./To-Dos.css" rel="stylesheet">
+      <style>
+        
+         </style>
+      <title>My To-Do's</title>
+       
+   </head>
+   <body>
+      <h1>My To-Do list</h1>
+      <form>
+         <br>
+         <input type="text"> </br>
+         </br>
+         <input type="submit">
+      </form>
+      <p syle='font-size: 34' color='#ff9900'>
+            kllll
+      </p>
+      <ul>
+
+      </ul>
+      <script>
+         function add() {
+      list.getElementById('theList').appendChild(userInput)
+}
+      let form = document.querySelector('form');
+      form.addEventListener('submit',(iii)=>{
+        let input = document.querySelector('input')
+        let p = document.querySelector('p')
+      iii.preventDefault()
+      if(input.value.trim() !==""){
+      let ul = document.querySelector('ul')
+      let li = document.createElement('li')
+      li.innerText = input.value
+      ul.addEventListener('click',(iii)=>{
+      iii.target.style.textDecoration = "line-through"
+     })
+      ul.appendChild(li)
+      p.innerText = ""
+      input.value = ""
+     }
+      else{
+        p.innerText = "Error."
+      }
+     })
+      </script>
+      
+   </body>
+   
+</html>
