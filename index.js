@@ -6,21 +6,33 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(ul)
     let button = document.querySelector("button")
     let input = document.querySelector("input")
-    let li = document.createElement("li")
+    // const newList = () => {
+    //     let h1 = document.createElement("h1")
+    //     h1.innerText = "To-do List"
+    //     document.body.appendChild(h1)
+    // }
     button.addEventListener("click", () => {
         if (!input.value) {
-            alert("There must be a value here")
-        } else {
+            alert("Please insert a value.")
+        } else {         
+            let li = document.createElement("li")
             li.innerText = input.value      
             ul.appendChild(li)
+            let button = document.createElement("button")
+            button.value = "Delete"
+            button.innerText = "Delete"
+            li.appendChild(button)
+            button.addEventListener("click", () => {
+                ul.removeChild(li)
+            })
         }
         input.value = ""
     })
-    ul.addEventListener("click", () => {
-        li.style.textDecoration = "line-through"    
+    ul.addEventListener("click", (e) => {     
+        e.target.style.textDecoration = "line-through"    
     })
-    ul.addEventListener("dblclick", () => {
-        li.style.textDecoration = "none"
+    ul.addEventListener("dblclick", (e) => {   
+        e.target.style.textDecoration = "none"
     })
 
 })
