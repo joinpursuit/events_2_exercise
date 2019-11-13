@@ -12,10 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
         let li = document.createElement("li")
         li.innerText = userInput["list"]
         document.body.appendChild(li)
-
-        
+        document.getElementById("list").value="";
     })
-    let p = document.querySelector("nada")
-    p.addEventListener()
+    let p = document.querySelector("p")
+    p.addEventListener("click", (e) => {
+        e.preventDefault()
+        if(userInput["list"] === ""){
+            e.id.innerText = "please put something in the text box"
+        }
+    })
 
 })
