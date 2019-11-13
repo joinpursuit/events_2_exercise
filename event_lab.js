@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", () =>{
 
-
-
-
-
     let form = document.querySelector("form")
     form.addEventListener("submit", (e) => { //to prevent refresh refresh
         let input = document.querySelector("#item")
@@ -11,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         let li = document.createElement("li");
         
         li.innerText = input.value
-        
+
         e.preventDefault()
         let error = document.createElement("P");
         if(input.value === "") {
@@ -26,9 +22,6 @@ document.addEventListener("DOMContentLoaded", () =>{
             debugger
              //[e.target.value].style.textDecoration
             // li.style.textDecoration
-        })
-        
-        
+        })  
     })
-
 })
