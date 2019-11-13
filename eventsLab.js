@@ -5,13 +5,19 @@ document.addEventListener("DOMContentLoaded",()=>{
     
     form.addEventListener("submit",(e)=>{
         e.preventDefault()
-        let li=document.createElement("li")
-        li.innerText = toDoItem.value
+        
         
         if(toDoItem.value){
+            let li=document.createElement("li")
+            li.innerText = toDoItem.value
+
+            
+            let deletebtn = document.createElement("button")
+            deletebtn.innerText = "delete"
+            li.appendChild(deletebtn)
             list.appendChild(li)
             document.body.appendChild(list)
-            debugger
+            // debugger
             error.innerText=""
             toDoItem.value=""
         } else{
@@ -21,4 +27,20 @@ document.addEventListener("DOMContentLoaded",()=>{
             
         }
     })
+
+    list.addEventListener("click", (event) =>{
+
+        event.target.style.textDecoration = "line-through"
+    
+    })
+
+    list.addEventListener("click",()=>{
+
+        event.target.parentNode.parentNode.removeChild(event.target)
+        // event.target.parentNode.removeChild(event.target)
+
+    })
+
+
+
 })
