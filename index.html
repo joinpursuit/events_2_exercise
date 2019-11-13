@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events Lab</title>
+  </head>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+  
+  let input = document.querySelector('#input')
+  let form = document.querySelector('form')
+  let list = document.querySelector('ul')
+  let text = document.querySelector('#input')
+  form.addEventListener("submit", () => {
+    event.preventDefault()
+    let listItem = document.createElement('li')
+    if(input.value.trim() === "") {
+      text.innerText = 'Please input a value'
+    } else {
+      listItem.innerText = input.value
+      list.appendChild(listItem) 
+      text.innerText = " "
+      input.value = ""
+      }
+  })
+
+
+  </script>
+
+  <body>
+    <h1> My To-Do's </h1>
+
+    <form>
+
+      <ul id=""></ul>
+      <input type="text" id="input">
+      <input type="submit" value="Add" id="button">
+    </form>
+    <p id="input"> </p>
+
+  </body>
+</html>
