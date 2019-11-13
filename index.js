@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
    let li = document.createElement("li")
    li.innerText = document.querySelector("#input").value
    ul.appendChild(li)
+   document.querySelector("#input").value = ""
  }
 
  })
