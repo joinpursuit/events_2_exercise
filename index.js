@@ -8,15 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(ul)
     let input = document.createElement("input")
     input.type = "text"
+    input.placeholder = "add to To Do"
     form.appendChild(input)
     let submit = document.createElement("input")
     submit.type = "button"
     submit.value = "Submit to my list"
     form.appendChild(submit)
     submit.addEventListener("click", () => {
-        let li = document.createElement("li")
-        let userInput = input.value;
-        li.innerHTML = userInput
-        ul.appendChild(li)
+        if(input.value){
+            let li = document.createElement("li")
+            let userInput = input.value;
+            li.innerText = userInput
+            ul.appendChild(li)
+        }else{
+            alert("Error. Todo cannot be empty")
+        }
     })
+    let li = document.querySelectorAll("#li")
+    li.id = "li1"
+    console.log("#li1")
+    // li.addEventListener("click",(event)=>{
+    //     li.style.textDecoration = "line-through"
+    //     debugger
+    // })
+
 })
