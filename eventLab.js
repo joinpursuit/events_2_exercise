@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let li = document.createElement("li");
         li.innerText = input
         ul.appendChild(li);
+        document.body.appendChild(ul)
     })
     // let form = document.querySelector("#form");
     // form.addEventListener("")
