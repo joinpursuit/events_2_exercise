@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Error. Todo cannot be empty")
         }
     })
-    let li = document.querySelectorAll("#li")
-    li.id = "li1"
-    console.log("#li1")
-    // li.addEventListener("click",(event)=>{
-    //     li.style.textDecoration = "line-through"
-    //     debugger
-    // })
+    
+    ul.addEventListener("click",(event)=>{
+        event.target.style.textDecoration = "line-through"
+    })
+    ul.addEventListener("dblclick",(event)=>{
+         event.target.style.textDecoration = "none"
+    })
 
 })
