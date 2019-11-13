@@ -14,4 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
  })
  document.body.appendChild(ul)
+
+ul.addEventListener("click",(e) => {
+
+   e.target.style.textDecoration = "line-through"
+ })
 })
