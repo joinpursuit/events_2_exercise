@@ -5,21 +5,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let form = document.querySelector("form")
     form.addEventListener("change", (e) =>{
-    userInput[e.target.id] = e.target.value
-    console.log(userInput)
+        userInput[e.target.id] = e.target.value
+        console.log(userInput)
     })
 
     form.addEventListener("submit", (e) =>{
-    e.preventDefault()
-    let li = document.createElement("li")
-    li.innerText = userInput["list"]
-    document.body.appendChild(li)
-    document.getElementById("list").value="";
-    
-    let p = document.querySelector("#emptyAlert")
-    if(userInput["list"] === ""){
-        p.innerText = "please put something in the text box"
-    }
+        e.preventDefault()
+        let li = document.createElement("li")
+        li.innerText = userInput["list"]
+        document.body.appendChild(li)
+        document.getElementById("list").value="";
+
+        let p = document.querySelector("#emptyAlert")
+        if(userInput["list"] === ""){
+            p.innerText = "Error. List cannot be empty"
+        }
     })
+
+    // form.addEventListener("click", (e) =>{
+    //     document.getElementById("li").style.textDecoration = "line-through"
+    // })
 
 })
