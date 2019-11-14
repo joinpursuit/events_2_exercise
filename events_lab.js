@@ -7,23 +7,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        let pTag = document.createElement("p");
-        let errorMessage = document.querySelector("p");
+        let paragraph = document.createElement("p");
+        let emptyError = document.querySelector("p");
+
         if(input.value === "") {
-            if(!errorMessage) { // Check if there is an error message
-                pTag.innerText = "ERROR!!! \n Please Enter a To-Do"
-                document.body.appendChild(pTag);
-            }
+            errorMessageDisplay(emptyError, paragraph);
         } else {
-            if(errorMessage) {
-                //to remove the error message once a to do has been added
-                document.body.removeChild(errorMessage);
-            }
+            removeErrorMessage(emptyError);
+
             let li = document.createElement("li")
             li.innerText = input.value
             ul.appendChild(li)
         }
     })
 
-    
+    ul.addEventListener("click", (e) => {
+        let target = e.target;
+        target.style.textDecoration = "line-through";
+    })
 })
+
+errorMessageDisplay = (error, el) => {
+    if(!error) {
+        el.innerText = "ERROR!!! \n Please Enter a To-Do";
+        document.body.appendChild(el); 
+    }
+}
+
+removeErrorMessage = (error) => {
+    if(error) {
+        document.body.removeChild(error);
+    }
+}
