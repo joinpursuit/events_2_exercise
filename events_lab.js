@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
             li.innerText = input.value
             ul.appendChild(li)
         }
+
+        input.value = "";
     })
 
     ul.addEventListener("click", (e) => {
