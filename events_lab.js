@@ -35,7 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let target = e.target;
 
         if(target.nodeName !== "BUTTON") {
-            target.style.textDecoration = "line-through";
+            if(target.style.textDecoration === "line-through") {
+                target.style.textDecoration = "none";
+            } else {
+                target.style.textDecoration = "line-through";
+            }
         }
 
         if(target.nodeName === "BUTTON") {
@@ -58,7 +62,6 @@ removeErrorMessage = (error) => {
 }
 
 setRemoveProperties = (remove, li) => {
-    remove.onclick = deleteToDo;
     remove.id = li.innerText;
     remove.innerText = "Delete To-Do";
     remove.style.marginLeft = "10px";
