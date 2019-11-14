@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let userInput = document.querySelector("#str").value;
         e.preventDefault();
         if(userInput === ""){
-            errorMsg.innerText = "Please type a To-do in the box";
+            errorMsg.innerText = "Error: please type a to-do item";
             form.appendChild(errorMsg);
         } else {
             // li
@@ -21,13 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
             li.appendChild(del)
             // errorMsg
             errorMsg.innerText = "";
-            // strike
         }
         document.querySelector("#str").value = "";
     })
     document.body.appendChild(list);
     
     list.addEventListener("click", (e) => {
+        if(e.target.type === "submit"){
+            e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+        }
         if(e.target.style.textDecoration === "line-through"){
             e.target.style.textDecoration = "initial";
         } else {
