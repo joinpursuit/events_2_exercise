@@ -14,18 +14,33 @@ document.addEventListener("DOMContentLoaded", () => {
             errorMessageDisplay(emptyError, paragraph);
         } else {
             removeErrorMessage(emptyError);
-
+            
             let li = document.createElement("li")
             li.innerText = input.value
-            ul.appendChild(li)
+
+            let remove = document.createElement("button");
+            setRemoveProperties(remove, li);
+
+            li.appendChild(remove);
+            ul.appendChild(li);
         }
 
         input.value = "";
     })
 
+
+
+
     ul.addEventListener("click", (e) => {
         let target = e.target;
-        target.style.textDecoration = "line-through";
+
+        if(target.nodeName !== "BUTTON") {
+            target.style.textDecoration = "line-through";
+        }
+
+        if(target.nodeName === "BUTTON") {
+            deleteToDo(target);
+        }
     })
 })
 
@@ -40,4 +55,16 @@ removeErrorMessage = (error) => {
     if(error) {
         document.body.removeChild(error);
     }
+}
+
+setRemoveProperties = (remove, li) => {
+    remove.onclick = deleteToDo;
+    remove.id = li.innerText;
+    remove.innerText = "Delete To-Do";
+    remove.style.marginLeft = "10px";
+}
+
+deleteToDo = (button) => {
+    let ul = document.querySelector("ul");
+    ul.removeChild(button.target.parentNode);
 }
