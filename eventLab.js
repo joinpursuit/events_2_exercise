@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     ul.addEventListener("click", e => {
       let strike = document.createElement("strike");
-      strike.innerText = e.target;
+      let selected = e.target.innerText
+      strike.innerText = selected;
       ul.appendChild(strike);
     });
   });
