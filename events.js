@@ -1,29 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let userInput = {
-        list: ""   
-    }
+    let form = document.querySelector("form");
+    let list = document.querySelector("ul");
+    let userInput = document.querySelector("#toDo");
 
-    let form = document.querySelector("form")
-    form.addEventListener("change", (e) =>{
-        userInput[e.target.id] = e.target.value
-        console.log(userInput)
-    })
 
     form.addEventListener("submit", (e) =>{
-        e.preventDefault()
-        let li = document.createElement("li")
-        li.innerText = userInput["list"]
-        document.body.appendChild(li)
-        document.getElementById("list").value="";
-
-        let p = document.querySelector("#emptyAlert")
-        if(userInput["list"] === ""){
-            p.innerText = "Error. List cannot be empty"
+        e.preventDefault();
+        let p = document.createElement("p")
+        let error = document.querySelector("p")
+        if(userInput.value === ""){
+            if(!error){
+                p.innerText = "Buddy please input something into the to-do list"
+                document.body.appendChild(p)
+            }
+        }else{
+            if(error){
+                document.body.removeChild(error)
+            }
+            let li = document.createElement("li");
+            li.innerText = userInput.value
+            list.appendChild(li)
         }
+        
+        userInput.value = "";
     })
 
-    // form.addEventListener("click", (e) =>{
-    //     document.getElementById("li").style.textDecoration = "line-through"
-    // })
+    list.addEventListener("click", (e) =>{
+        let target = e.target;
+        target.style.textDecoration = "line-through";
+    })
 
+    list.addEventListener("mouseover", (e) =>{
+        let target = e.target;
+        target.style.textDecoration = "none";
+    })
 })
