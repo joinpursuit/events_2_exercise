@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let h1 = document.createElement("h1")
     h1.innerText = "My To-Dos"
+    
     let ul = document.createElement("ul")
     let form = document.createElement("form")
     document.body.appendChild(h1)
